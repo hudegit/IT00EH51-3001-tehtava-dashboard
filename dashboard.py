@@ -51,6 +51,11 @@ ax.set_title("Maantieteellinen alue josta järjestelmät toimitetaan")
 
 st.pyplot(fig)
 
+
+toimittajat_pie = df["Toimittajat"].unique()
+
+
+st.header("Ylempi bar chart jossa kaikki yksiköt, alempi filteröity bar chart")
 #kaikki yksiköt
 yksikkö_määrä = df["Yksiköt"].value_counts().sort_values(ascending=True)
 
