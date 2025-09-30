@@ -2,8 +2,14 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("tietojarjestelmaluettelo_2023.csv", sep=";")
+# #paikallinen
+# df = pd.read_csv("tietojarjestelmaluettelo_2023.csv", sep=";")
 
+#githubissa oleva tiedosto
+url = "https://raw.githubusercontent.com/hudegit/IT00EH51-3001-tehtava-dashboard/refs/heads/main/tietojarjestelmaluettelo_2023.csv"
+df = pd.read_csv(url, on_bad_lines='skip', sep=";")
+
+st.title("Oulun kaupungin tietojärjestelmäluettelo")
 st.header("Koko aineisto")
 st.write(df)
 
@@ -27,7 +33,7 @@ unique_count = len(Yksikkö)
 st.write(f"Yksikköjen määrä: {unique_count}")
 
 
-
+#ei tahdo toimia pie charttina
 # yksikkö_määrä = df["Yksiköt"].value_counts()
 
 # fig, ax = plt.subplots(figsize=(50, 50))
